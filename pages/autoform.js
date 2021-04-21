@@ -25,8 +25,8 @@ function AutoFormTest({ router, request, response, schema }) {
           { ...router.query, [event.target.name]: event.target.value }
     });
   };
-  
-  const adsData = JSON.parse(response.adsdata)
+
+  const adsData = response.adsdata ? JSON.parse(response.adsdata) : [];
   const adsCountSize = adsData.length;
   const adsPerPage = 10;
   const pagesCount = Math.ceil((adsCountSize || 0) / adsPerPage);
